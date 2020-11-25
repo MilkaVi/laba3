@@ -1,4 +1,6 @@
-import pckg.MyObject;
+
+import pckg.Teacher;
+import reposit.TeacherRepo;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -11,29 +13,29 @@ public class SaveServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
-        MyObject object = new MyObject();
-        object.setTickedNum(req.getParameter("tickedNum"));
-        object.setGroup(req.getParameter("group"));
-
-        object.setSecondName(req.getParameter("secondName"));
-        object.setName(req.getParameter("name"));
-
-        object.setLastName(req.getParameter("lastName"));
+        Teacher teacher = new Teacher();
 
 
-        object.setMark1(Integer.parseInt(req.getParameter("mark1")));
-        object.setMark2(Integer.parseInt(req.getParameter("mark2")));
-        object.setMark3(Integer.parseInt(req.getParameter("mark3")));
-        object.setMark4(Integer.parseInt(req.getParameter("mark4")));
-        object.setAvarageMark();
+        teacher.setSecondName(req.getParameter("secondName"));
+        teacher.setName(req.getParameter("name"));
+        teacher.setLastName(req.getParameter("lastName"));
+
+        teacher.setDegree(req.getParameter("degree"));
+        teacher.setRank(req.getParameter("rank"));
+        teacher.setPosition(req.getParameter("position"));
+
+        teacher.setSex(req.getParameter("sex"));
+        teacher.setDate(req.getParameter("date"));
+        teacher.setCountCourse(Integer.valueOf(req.getParameter("countCourse")));
+
 
         try {
-            object.setId(Integer.parseInt(req.getParameter("id")));
+            teacher.setId(Integer.parseInt(req.getParameter("id")));
         } catch(NumberFormatException e) {}
-        if(object.getId() == null) {
-            Storage.create(object);
+        if(teacher.getId() == null) {
+            TeacherRepo.create(teacher);
         } else {
-            Storage.update(object);
+            TeacherRepo.update(teacher);
         }
 
         resp.sendRedirect(req.getContextPath() + "/index.html");

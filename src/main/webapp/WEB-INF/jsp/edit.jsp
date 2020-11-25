@@ -12,46 +12,47 @@
 <BODY>
 <FORM action="save.html" method="post">
 
-    <c:if test="${not empty object}">
-        <INPUT type="hidden" name="id" value="${object.id}">
+    <c:if test="${not empty teacher}">
+        <INPUT type="hidden" name="id" value="${teacher.id}">
     </c:if>
-
-    <P>номер зачетки:</P>
-
-    <INPUT type="text" name="tickedNum" value="${tickedNum}">
-
-    <P>группа:</P>
-
-    <INPUT type="text" name="group" value="${group}">
-
 
     <P>фамилия:</P>
 
-    <INPUT type="text" name="secondName" value="${secondName}">
+    <INPUT type="text" name="secondName" value="${teacher.secondName}">
 
     <P>имя:</P>
 
-    <INPUT type="text" name="name" value="${name}">
+    <INPUT type="text" name="name" value="${teacher.name}">
 
 
     <P>отчество:</P>
 
-    <INPUT type="text" name="lastName" value="${lastName}">
+    <INPUT type="text" name="lastName" value="${teacher.lastName}">
 
-    <P>1 сем:</P>
+    <P>степень:</P>
 
-    <INPUT type="text" name="mark1" value="${mark1}">
+    <INPUT type="text" name="degree" value="${teacher.degree}">
 
-    <P>2 сем:</P>
 
-    <INPUT type="text" name="mark2" value="${mark2}">
-    <P>3 сем:</P>
+    <P>звание:</P>
 
-    <INPUT type="text" name="mark3" value="${mark3}">
-    <P>4 сем:</P>
+    <INPUT type="text" name="rank" value="${teacher.rank}">
 
-    <INPUT type="text" name="mark4" value="${mark4}">
+    <P>должность:</P>
 
+    <INPUT type="text" name="position" value="${teacher.position}">
+
+    <P>пол:</P>
+
+    <INPUT type="text" name="sex" value="${teacher.sex}">
+
+    <P>дата рождения:</P>
+
+    <INPUT type="text" name="date" value="${teacher.date}">
+
+    <P>кол-во курсов:</P>
+
+    <INPUT type="text" name="countCourse" value="${teacher.countCourse}">
 
 
 

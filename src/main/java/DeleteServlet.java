@@ -1,3 +1,5 @@
+import reposit.TeacherRepo;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -10,7 +12,7 @@ public class DeleteServlet extends HttpServlet {
             throws ServletException, IOException {
         for(String id : req.getParameterValues("id")) {
             try {
-                Storage.delete(Integer.parseInt(id));
+                TeacherRepo.delete(Integer.parseInt(id));
             } catch(NumberFormatException e) {}
         }
         resp.sendRedirect(req.getContextPath() + "/index.html");
